@@ -127,9 +127,17 @@ class Renderer {
 			for (let x = 0; x < this.cellWidth; x++) {
 				const char = grid[y]?.charAt(x)
 				if (!char) continue
-				const index = +char
-				if (isNaN(index)) continue
-				const color = this.colors[index]
+
+				const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+				const charIndex = chars.findIndex((ch) => ch === char)
+
+				const color = this.colors[charIndex + 11] ?? null
+				if(!color) {
+					const index = +char
+					if (isNaN(index)) continue
+					this.colors[index]
+				}
+
 				if (!color) continue
 				this.ctx.fillStyle = color
 				this.ctx.fillRect(

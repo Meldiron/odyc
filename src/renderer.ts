@@ -128,11 +128,12 @@ class Renderer {
 				const char = grid[y]?.charAt(x)
 				if (!char) continue
 
-				const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+				const chars =
+					'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 				const charIndex = chars.findIndex((ch) => ch === char)
 
 				const color = this.colors[charIndex + 11] ?? null
-				if(!color) {
+				if (!color) {
 					const index = +char
 					if (isNaN(index)) continue
 					this.colors[index]

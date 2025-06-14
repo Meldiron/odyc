@@ -121,11 +121,14 @@ class Renderer {
 				const chars =
 					'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 				const charIndex = chars.findIndex((ch) => ch === char)
-				const color = this.colors[charIndex + 11] ?? null
-				if (!color) {
+
+				let color
+				if(charIndex !== -1) {
+					color = this.colors[charIndex + 10 + 1]
+				} else {
 					const index = +char
 					if (isNaN(index)) continue
-					this.colors[index]
+					color = this.colors[index]
 				}
 
 				if (!color) continue

@@ -1,5 +1,8 @@
 ---
 import '#style/index.css'
+
+import Profile from '#components/Profile.svelte'
+import WrapperAuth from '#components/WrapperAuth.svelte'
 ---
 
 <!doctype html>
@@ -9,5 +12,15 @@ import '#style/index.css'
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Odycjs</title>
 	</head>
-	<slot />
+	<body>
+		<WrapperAuth client:only>
+			<header>
+				<Profile client:idle />
+			</header>
+
+			<hr />
+
+			<slot />
+		</WrapperAuth>
+	</body>
 </html>

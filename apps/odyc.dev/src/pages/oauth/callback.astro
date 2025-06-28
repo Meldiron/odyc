@@ -1,0 +1,19 @@
+<script>
+	import { Backend } from '#lib/backend.ts'
+
+	const urlParams = new URLSearchParams(window.location.search)
+
+	const userId = urlParams.get('userId') ?? ''
+	const secret = urlParams.get('secret') ?? ''
+
+	if (!userId || !secret) {
+		window.location.href = '/sign-in' // Invalid URL
+	}
+
+	try {
+		await Backend.signInFinish(userId, secret)
+		window.location.href = '/playground' // Success
+	} catch (error: unknown) {
+		window.location.href = '/playground' // Expired URL or unknown error
+	}
+</script>

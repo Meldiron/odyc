@@ -16,7 +16,9 @@
 	"dependencies": {
 		"@astrojs/svelte": "^7.1.0",
 		"@tailwindcss/vite": "^4.1.11",
+		"appwrite": "^18.1.1",
 		"astro": "^5.10.1",
+		"nanostores": "^1.0.1",
 		"slugify": "^1.6.6",
 		"svelte": "^5.34.9",
 		"tailwindcss": "^4.1.11",
